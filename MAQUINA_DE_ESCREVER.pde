@@ -3,6 +3,7 @@ boolean olhosAbertos = false;
 void setup()
 {
   size(1080,768);
+  
 }
 
 void draw(){
@@ -15,8 +16,6 @@ void draw(){
   fill(255,255,255);
   rect(342, 13, 403, 322, 6);
   
-  
-  //SOMBRANCELHA (FAZER)
   
   //ESTRUTURA DA MÁQUINA
   fill(204,74,34);
@@ -73,22 +72,33 @@ void draw(){
   rect(710, 565, 37, 33, 28);
   
   //TECLAS ESPECIAIS
-  fill(255,255,255);
-  rect(348, 603, 130, 33, 28);
+  if (olhosAbertos) {
+    fill(255, 0, 0); // Ligado: Vermelho 
+  } else {
+    fill(255, 255, 255); // Desligado: Branco
+  }
+  rect(348, 603, 130, 33, 28); // Desenha o botão ON/OFF
   fill(255,255,255);
   rect(486, 603, 130, 33, 28);
   fill(255,255,255);
   rect(622, 603, 130, 33, 28);
   
-  //OLHOS E BOCA
-  
   
   // LOGICA DOS OLHOS ABERTOS
   
   if (olhosAbertos) {
+  pushMatrix();
   fill(0);
   ellipse(430, 368, 20, 20); // olho esquerdo
   ellipse(640, 368, 20, 20); // olho direito
+  //translate(393,346);
+  //line(197,100,100,100);
+   noFill();
+  stroke(0);
+  strokeWeight(4);
+  arc(535, 442, 113, 22, PI, TWO_PI);
+  popMatrix();
+  
   }
   
   if (!olhosAbertos) {
